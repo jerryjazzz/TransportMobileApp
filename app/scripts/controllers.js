@@ -30,6 +30,24 @@ angular.module('TransportMobileApp.controllers', [])
 
     })
 
+    .controller('TripsCtrl', function($scope, $stateParams) {
+
+        $scope.city = $stateParams.cityId;
+
+        $scope.transporters = [
+            { name: 'Transporter 1', id: 1 },
+            { name: 'Transporter 2', id: 2 },
+            { name: 'Transporter 3', id: 3 }
+        ];
+
+        $scope.trips = [
+            { name: 'Trip1', id: 1 },
+            { name: 'Trip2 2', id: 2 },
+            { name: 'Trip1 3', id: 3 }
+        ];
+
+    })
+
     .controller('ResultsCtrl', function($scope, $stateParams) {
 
       $scope.city = $stateParams.cityId;

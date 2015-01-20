@@ -4,7 +4,8 @@
     <!--</ion-nav-buttons>-->
     <ion-content class="has-header">
         <ion-list>
-            <ion-item class="item-icon-right" ng-repeat="city in cities" href="#/app/cities/{{city.id}}/transporters">
+            <!--<ion-item class="item-icon-right" ng-repeat="city in cities" href="#/app/cities/{{city.id}}/transporters">-->
+            <ion-item class="item-icon-right" ng-repeat="city in cities" href="#/app/trips/{{city.id}}">
                 {{city.name}}
                 <i class="icon ion-chevron-right icon-accessory"></i>
             </ion-item>

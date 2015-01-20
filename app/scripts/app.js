@@ -72,6 +72,16 @@ angular.module('TransportMobileApp', ['ionic', 'config', 'TransportMobileApp.con
             }
           })
 
+          .state('app.trips', {
+              url: '/trips/:cityId',
+              views: {
+                  'menuContent' :{
+                      templateUrl: 'templates/trips.html',
+                      controller: 'TripsCtrl'
+                  }
+              }
+          })
+
           .state('app.results', {
             url: '/cities/:cityId/transporters/:transporterId',
             views: {
