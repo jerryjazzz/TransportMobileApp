@@ -14,27 +14,21 @@
             </label>
         </div>
         <div class="row">
+            <div class="col"></div>
+            <div class="col padding"><h4>Sort by: </h4></div>
             <div class="col">
-                <ul class="">
-                    <li class="item item-checkbox">
-                        <label class="checkbox">
-                            <input type="checkbox">
-                        </label>
-                        Price
-                    </li>
-                </ul>
+                <label class="checkbox">
+                    <input ng-model="byTime" name="sort" type="checkbox">Time
+                </label>
+
             </div>
             <div class="col">
-                <ul class="">
-                    <li class="item item-checkbox">
-                        <label class="checkbox">
-                            <input type="checkbox">
-                        </label>
-                        Time
-                    </li>
-                </ul>
+                <label class="checkbox">
+                    <input ng-model="byPrice" name="sort" type="checkbox">Price
+                </label>
             </div>
         </div>
+
         <div ng-repeat="trip in trips">
             <div class="list card">
 
@@ -55,6 +49,5 @@
                 </div>
             </div>
         </div>
-
     </ion-content>
 </ion-view>
