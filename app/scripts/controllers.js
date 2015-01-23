@@ -3,55 +3,59 @@ angular.module('TransportMobileApp.controllers', [])
 
     .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
-      // menu code here
+        // menu code here
 
     })
 
     .controller('MainCtrl', function($scope) {
 
-      // main page content
+        // main page content
 
     })
 
-    .controller('CitiesCtrl', function($scope) {
-      $scope.cities = [
-        { name: 'Skopje', id: 1 },
-        { name: 'Prilep', id: 2 },
-        { name: 'Struga', id: 3 },
-        { name: 'Bitola', id: 4 },
-        { name: 'Resen', id: 5 },
-        { name: 'Kicevo', id: 6 }
-      ];
+    .controller('CitiesCtrl', function($scope, CityService) {
+
+        CityService.getCities().then(function(data){
+            $scope.cities = data;
+        });
+
     })
 
     .controller('CityTransporterCtrl', function($scope, $stateParams) {
 
-      $scope.test = $stateParams.cityId;
+        $scope.test = $stateParams.cityId;
 
     })
 
-    .controller('TripsCtrl', function($scope, $stateParams) {
+    .controller('TripsCtrl', function($scope, $stateParams, CityService, CityTransporterService, TripService) {
 
-        $scope.city = $stateParams.cityId;
+        $scope.predicate = '-time';
+        $scope.reverse = true;
+        //$scope.byTime = true;
 
-        $scope.transporters = [
-            { name: 'Transporter 1', id: 1 },
-            { name: 'Transporter 2', id: 2 },
-            { name: 'Transporter 3', id: 3 }
-        ];
 
-        $scope.trips = [
-            { name: 'Trip1', id: 1 },
-            { name: 'Trip2 2', id: 2 },
-            { name: 'Trip1 3', id: 3 }
-        ];
+        CityService.getCityById($stateParams.cityId).then(function (data) {
+
+            // get city name from the ID
+            $scope.cityName = data.name;
+
+            // get all transporters to this city
+            $scope.transporters = data.transporters;
+
+        });
+
+        TripService.getTripsToCity($stateParams.cityId).then(function(data){
+
+            $scope.trips = data;
+
+        });
 
     })
 
     .controller('ResultsCtrl', function($scope, $stateParams) {
 
-      $scope.city = $stateParams.cityId;
-      $scope.transporter = $stateParams.transporterId;
+        $scope.city = $stateParams.cityId;
+        $scope.transporter = $stateParams.transporterId;
 
     })
 

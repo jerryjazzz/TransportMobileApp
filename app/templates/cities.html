@@ -3,7 +3,8 @@
         <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
     <!--</ion-nav-buttons>-->
     <ion-content class="has-header">
-        <ion-list>
+        <loader item="cities"></loader>
+        <ion-list ng-show="cities">
             <!--<ion-item class="item-icon-right" ng-repeat="city in cities" href="#/app/cities/{{city.id}}/transporters">-->
             <ion-item class="item-icon-right" ng-repeat="city in cities" href="#/app/trips/{{city.id}}">
                 {{city.name}}

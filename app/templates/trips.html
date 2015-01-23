@@ -1,11 +1,13 @@
-<ion-view title="Results">
+<ion-view title="{{cityName}}">
     <ion-content class="has-header">
+        <loader item="trips"></loader>
+        <div ng-show="trips">
         <div class="">
             <label class="item item-input item-select">
                 <div class="input-label">
                     Transporter
                 </div>
-                <select ng-model="transporterId">
+                <select ng-model="trId">
                     <option value=""> -- All -- </option>
                     <option value="{{transporter.id}}" ng-repeat="transporter in transporters">
                         {{transporter.name}}
@@ -18,24 +20,22 @@
             <div class="col padding"><h4>Sort by: </h4></div>
             <div class="col">
                 <label class="checkbox">
-                    <input ng-model="byTime" name="sort" type="checkbox">Time
+                    <input ng-click="predicate = 'time'; reverse=!reverse" ng-model="byTime" name="sort" type="checkbox">Time
                 </label>
 
             </div>
             <div class="col">
                 <label class="checkbox">
-                    <input ng-model="byPrice" name="sort" type="checkbox">Price
+                    <input ng-click="predicate = 'price'; reverse=!reverse" ng-model="byPrice" name="sort" type="checkbox">Price
                 </label>
             </div>
         </div>
-
-        <div ng-repeat="trip in trips">
+        <div ng-repeat="trip in trips | filter:{ transporter_id: trId } | orderBy: predicate:reverse">
             <div class="list card">
-
                 <div class="item item-avatar">
-                    <img src="mcfly.jpg">
-                    <h2>Trip destination</h2>
-                    <p>Time</p>
+                    <img ng-src="{{trip.transporter.image_url}}">
+                    <h2>Ohrid - {{cityName}}</h2>
+                    <p>{{trip.time}}</p>
                 </div>
 
                 <div class="item item-body">
@@ -43,11 +43,12 @@
                         Some information
                     </p>
                     <p>
-                        <a href="#" class="subdued">5 Seats availible</a>
-                        <a href="#" class="subdued">550 den</a>
+                        <a href="#" class="subdued">Total {{trip.seats}} seats</a>
+                        <a href="#" class="subdued">{{trip.price}}</a>
                     </p>
                 </div>
             </div>
+        </div>
         </div>
     </ion-content>
 </ion-view>

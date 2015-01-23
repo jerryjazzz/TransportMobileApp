@@ -6,7 +6,13 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('TransportMobileApp', ['ionic', 'config', 'TransportMobileApp.controllers'])
+angular.module('TransportMobileApp', [
+    'ionic',
+    'config',
+    'TransportMobileApp.controllers',
+    'TransportMobileApp.services',
+    'TransportMobileApp.directives'
+])
 
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
