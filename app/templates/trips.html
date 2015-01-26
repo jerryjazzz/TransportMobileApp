@@ -1,6 +1,13 @@
-<ion-view title="{{cityName}}">
+<ion-view title="Trip to {{cityName}}">
     <ion-content class="has-header">
         <loader item="trips"></loader>
+        <div ng-show="!hasData">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    There is no trip to {{cityName}} currently.
+                </div>
+            </div>
+        </div>
         <span ng-show="trips">
             <div class="">
                 <label class="item item-input item-select">
@@ -31,14 +38,14 @@
             </div>
             <div ng-repeat="trip in trips | filter:{ transporter_id: trId } | orderBy: predicate:reverse">
                 <div class="tripInfo">
-                <div class="list card ">
-                    <div class="item item-avatar">
-                        <img ng-src="{{trip.transporter.image_url}}">
-                        <h2>{{trip.time}} - Ohrid - {{cityName}}</h2>
-                        <p>Total: {{trip.seats}} seats</p>
-                        <h2>Price: {{trip.price}}</h2>
+                    <div class="list card ">
+                        <div class="item item-avatar">
+                            <img ng-src="{{trip.transporter.image_url}}">
+                            <h2>{{trip.time}} - {{trip.transporter.name}}</h2>
+                            <p>Total: {{trip.seats}} seats</p>
+                            <h2>Price: {{trip.price}}</h2>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </span>

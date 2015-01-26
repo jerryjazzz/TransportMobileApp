@@ -1,0 +1,19 @@
+<ion-view title="Transporters">
+    <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <loader item="transporters"></loader>
+        <div ng-show="transporters" ng-repeat="transporter in transporters">
+            <div class="tripInfo">
+                <div class="list card">
+                    <a class="item item-avatar" href="#/transporter/{{transporter.id}}">
+                        <img ng-src="{{transporter.image_url}}">
+                        <h2>{{transporter.name}}</h2>
+                        <p>Phone: {{transporter.phone}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

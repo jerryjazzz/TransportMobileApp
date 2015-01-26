@@ -9,3 +9,15 @@
 .tripInfo{
     margin-bottom: -25px;
 }
+
+.searchResults{
+
+    position: absolute;
+    z-index: 1000;
+    margin-top: -24px;
+    width: 90%;
+    left: 16px;
+    overflow: auto;
+    max-height: 237px;
+
+}

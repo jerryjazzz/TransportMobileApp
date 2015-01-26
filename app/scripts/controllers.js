@@ -7,9 +7,19 @@ angular.module('TransportMobileApp.controllers', [])
 
     })
 
-    .controller('MainCtrl', function($scope) {
+    .controller('MainCtrl', function($scope, CityService) {
 
-        // main page content
+        $scope.drawResult = function(text){
+            if(text.length > 0){
+
+                CityService.getCityByName(text).then(function(data) {
+                    $scope.cities = data;
+                });
+
+            } else {
+                $scope.cities = {};
+            }
+        }
 
     })
 
@@ -17,6 +27,14 @@ angular.module('TransportMobileApp.controllers', [])
 
         CityService.getCities().then(function(data){
             $scope.cities = data;
+        });
+
+    })
+
+    .controller('TransportersCtrl', function($scope, TransporterService) {
+
+        TransporterService.getTransporters().then(function(data){
+            $scope.transporters = data;
         });
 
     })
@@ -33,6 +51,8 @@ angular.module('TransportMobileApp.controllers', [])
         $scope.reverse = false;
         $scope.byTime = true;
 
+        $scope.hasData = false;
+
 
         CityService.getCityById($stateParams.cityId).then(function (data) {
 
@@ -47,6 +67,9 @@ angular.module('TransportMobileApp.controllers', [])
         TripService.getTripsToCity($stateParams.cityId).then(function(data){
 
             $scope.trips = data;
+            if($scope.trips.length){
+                $scope.hasData = true;
+            }
 
         });
 

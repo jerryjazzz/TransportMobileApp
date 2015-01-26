@@ -3,13 +3,25 @@
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-content class="has-header">
-        <div class="list list-inset">
-            <label class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search">
-            </label>
+        <div style="position: relative">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input ng-change="drawResult(text)" ng-model="text" type="text" placeholder="Search city">
+                </label>
+            </div>
         </div>
-        <h3 class="padding-horizontal">Some weird text and logo</h3>
+        <div ng-show="cities" class="searchResults">
+            <div class="card">
+                <a href="#/app/trips/{{city.id}}" class="item item-text-wrap" ng-repeat="city in cities">
+                    {{city.name}}
+                </a>
+            </div>
+        </div>
+        <h4 class="padding-horizontal">
+            Select your destination by clicking the button,
+            or search the destination city from the serach bar
+        </h4>
         <div class="list card">
 
             <a href="#/app/cities" class="item item-icon-left">
@@ -17,10 +29,10 @@
                 Choose your destination
             </a>
 
-            <a href="#/app/transporters" class="item item-icon-left">
-                <i class="icon ion-model-s"></i>
-                Choose transporter
-            </a>
+            <!--<a href="#/app/transporters" class="item item-icon-left">-->
+                <!--<i class="icon ion-model-s"></i>-->
+                <!--Choose transporter-->
+            <!--</a>-->
 
         </div>
     </ion-content>

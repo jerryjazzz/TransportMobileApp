@@ -57,6 +57,15 @@ angular.module('TransportMobileApp', [
             }
           })
 
+          .state('app.transporters', {
+              url: '/transporters',
+              views: {
+                  'menuContent' :{
+                      templateUrl: 'templates/transporters.html',
+                      controller: 'TransportersCtrl'
+                  }
+              }
+          })
 
           .state('app.cities', {
             url: '/cities',
