@@ -29,9 +29,9 @@ angular.module('TransportMobileApp.controllers', [])
 
     .controller('TripsCtrl', function($scope, $stateParams, CityService, CityTransporterService, TripService) {
 
-        $scope.predicate = '-time';
-        $scope.reverse = true;
-        //$scope.byTime = true;
+        $scope.predicate = 'time';
+        $scope.reverse = false;
+        $scope.byTime = true;
 
 
         CityService.getCityById($stateParams.cityId).then(function (data) {

@@ -1,1 +1,11 @@
 /* Your application styles go here */
+.filterBar {
+    background-color: #eee;
+    margin-top: 10px;
+    margin-bottom: -5px;
+    border: 1px solid #ccc;
+}
+
+.tripInfo{
+    margin-bottom: -25px;
+}

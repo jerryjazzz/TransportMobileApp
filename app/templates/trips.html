@@ -1,54 +1,46 @@
 <ion-view title="{{cityName}}">
     <ion-content class="has-header">
         <loader item="trips"></loader>
-        <div ng-show="trips">
-        <div class="">
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Transporter
-                </div>
-                <select ng-model="trId">
-                    <option value=""> -- All -- </option>
-                    <option value="{{transporter.id}}" ng-repeat="transporter in transporters">
-                        {{transporter.name}}
-                    </option>
-                </select>
-            </label>
-        </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col padding"><h4>Sort by: </h4></div>
-            <div class="col">
-                <label class="checkbox">
-                    <input ng-click="predicate = 'time'; reverse=!reverse" ng-model="byTime" name="sort" type="checkbox">Time
-                </label>
-
-            </div>
-            <div class="col">
-                <label class="checkbox">
-                    <input ng-click="predicate = 'price'; reverse=!reverse" ng-model="byPrice" name="sort" type="checkbox">Price
+        <span ng-show="trips">
+            <div class="">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Transporter
+                    </div>
+                    <select ng-model="trId">
+                        <option value=""> -- All -- </option>
+                        <option value="{{transporter.id}}" ng-repeat="transporter in transporters">
+                            {{transporter.name}}
+                        </option>
+                    </select>
                 </label>
             </div>
-        </div>
-        <div ng-repeat="trip in trips | filter:{ transporter_id: trId } | orderBy: predicate:reverse">
-            <div class="list card">
-                <div class="item item-avatar">
-                    <img ng-src="{{trip.transporter.image_url}}">
-                    <h2>Ohrid - {{cityName}}</h2>
-                    <p>{{trip.time}}</p>
+            <div class="row filterBar">
+                <div class="col"></div>
+                <div class="col padding"><h4>Sort by: </h4></div>
+                <div class="col">
+                    <label class="checkbox">
+                        <input ng-click="predicate = 'time'; reverse=!reverse" ng-model="byTime" name="sort" type="checkbox">Time
+                    </label>
                 </div>
-
-                <div class="item item-body">
-                    <p>
-                        Some information
-                    </p>
-                    <p>
-                        <a href="#" class="subdued">Total {{trip.seats}} seats</a>
-                        <a href="#" class="subdued">{{trip.price}}</a>
-                    </p>
+                <div class="col">
+                    <label class="checkbox">
+                        <input ng-click="predicate = 'price'; reverse=!reverse" ng-model="byPrice" name="sort" type="checkbox">Price
+                    </label>
                 </div>
             </div>
-        </div>
-        </div>
+            <div ng-repeat="trip in trips | filter:{ transporter_id: trId } | orderBy: predicate:reverse">
+                <div class="tripInfo">
+                <div class="list card ">
+                    <div class="item item-avatar">
+                        <img ng-src="{{trip.transporter.image_url}}">
+                        <h2>{{trip.time}} - Ohrid - {{cityName}}</h2>
+                        <p>Total: {{trip.seats}} seats</p>
+                        <h2>Price: {{trip.price}}</h2>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </span>
     </ion-content>
 </ion-view>
