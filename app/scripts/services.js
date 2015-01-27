@@ -29,51 +29,51 @@ angular.module('TransportMobileApp.services', [])
 
         }
     })
-    .service('TransporterService', function($http){
+    .service('TransporterService', function($http, apiConfig){
         return {
 
             getTransporters: function(){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/transporter').then(function(result) {
+                return $http.get(apiConfig.url + 'api/transporter').then(function(result) {
                     return result.data;
                 });
             },
 
             getTransporterById: function(id){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/transporter/' + id).then(function(result) {
+                return $http.get(apiConfig.url + 'api/transporter/' + id).then(function(result) {
                     return result.data;
                 });
             }
 
         }
     })
-    .service('CityTransporterService', function($http){
+    .service('CityTransporterService', function($http, apiConfig){
         return {
 
             getCities: function(){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/city').then(function(result) {
+                return $http.get(apiConfig.url + 'api/city').then(function(result) {
                     return result.data;
                 });
             },
 
             getCityById: function(id){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/city',id).then(function(result) {
+                return $http.get(apiConfig.url + 'api/city',id).then(function(result) {
                     return result.data;
                 });
             }
 
         }
     })
-    .service('TripService', function($http){
+    .service('TripService', function($http, apiConfig){
         return {
 
             getTrips: function(){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/trip').then(function(result) {
+                return $http.get(apiConfig.url + 'api/trip').then(function(result) {
                     return result.data;
                 });
             },
 
             getTripsToCity: function(id){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/trip/'+id).then(function(result) {
+                return $http.get(apiConfig.url + 'api/trip/'+id).then(function(result) {
                     return result.data;
                 });
             }

@@ -1,0 +1,40 @@
+<ion-view title="{{transporter.name}}">
+    <ion-content class="has-header">
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="{{transporter.image_url}}">
+                <h2>{{transporter.name}}</h2>
+                <p>{{transporter.phone}}</p>
+            </div>
+            <div class="item item-body">
+                <p>
+                    {{transporter.info}}
+                </p>
+                <div class="list">
+
+                    <div class="item item-divider">
+                        Destinations:
+                    </div>
+
+                    <a ng-repeat="city in transporter.cities" class="item" href="#/app/trips/{{city.id}}">
+                        {{city.name}}
+                    </a>
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-thumbsup"></i>
+                    Like
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i>
+                    Comment
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Share
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

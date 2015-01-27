@@ -14,10 +14,19 @@
 
     position: absolute;
     z-index: 1000;
-    margin-top: -24px;
+    margin-top: -23px;
     width: 90%;
     left: 16px;
     overflow: auto;
     max-height: 237px;
 
+}
+
+.searchField {
+    font-size: 16px;
+}
+
+.frontPage {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }

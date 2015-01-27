@@ -39,13 +39,21 @@ angular.module('TransportMobileApp.controllers', [])
 
     })
 
+    .controller('TransporterCtrl', function($scope, $stateParams, TransporterService) {
+
+        TransporterService.getTransporterById($stateParams.transporterId).then(function(data){
+            $scope.transporter = data;
+        });
+
+    })
+
     .controller('CityTransporterCtrl', function($scope, $stateParams) {
 
         $scope.test = $stateParams.cityId;
 
     })
 
-    .controller('TripsCtrl', function($scope, $stateParams, CityService, CityTransporterService, TripService) {
+    .controller('TripsCtrl', function($scope, $stateParams, CityService, TripService) {
 
         $scope.predicate = 'time';
         $scope.reverse = false;

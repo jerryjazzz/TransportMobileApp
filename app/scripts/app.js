@@ -28,6 +28,10 @@ angular.module('TransportMobileApp', [
       });
     })
 
+    .constant("apiConfig", {
+        "url": "http://192.168.15.81/TransportLaravel/public/"
+    })
+
     .config(function($stateProvider, $urlRouterProvider) {
       $stateProvider
 
@@ -57,12 +61,22 @@ angular.module('TransportMobileApp', [
             }
           })
 
-          .state('app.transporters', {
+          .state('app.singleTransporter', {
               url: '/transporters',
               views: {
                   'menuContent' :{
                       templateUrl: 'templates/transporters.html',
                       controller: 'TransportersCtrl'
+                  }
+              }
+          })
+
+          .state('app.transporter', {
+              url: '/transporters/:transporterId',
+              views: {
+                  'menuContent' :{
+                      templateUrl: 'templates/transporter.html',
+                      controller: 'TransporterCtrl'
                   }
               }
           })

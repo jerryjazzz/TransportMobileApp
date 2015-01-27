@@ -1,4 +1,4 @@
-<ion-view title="Main page">
+<ion-view title="Transport App">
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
@@ -7,7 +7,7 @@
             <div class="list list-inset">
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"></i>
-                    <input ng-change="drawResult(text)" ng-model="text" type="text" placeholder="Search city">
+                    <input style="font-size: 16px" ng-change="drawResult(text)" ng-model="text" type="text" placeholder="Search city">
                 </label>
             </div>
         </div>
@@ -18,7 +18,11 @@
                 </a>
             </div>
         </div>
-        <h4 class="padding-horizontal">
+        <div style="text-align: center;">
+            <br/>
+            <img src="img/ionic.png" class="" alt=""/>
+        </div>
+        <h4 class="padding frontPage">
             Select your destination by clicking the button,
             or search the destination city from the serach bar
         </h4>
