@@ -6,23 +6,23 @@
  */
 'use strict';
 angular.module('TransportMobileApp.services', [])
-    .service('CityService', function($http){
+    .service('CityService', function($http, apiConfig){
         return {
 
             getCities: function(){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/city').then(function(result) {
+                return $http.get(apiConfig.url + 'api/city').then(function(result) {
                     return result.data;
                 });
             },
 
             getCityById: function(id){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/api/city/' + id).then(function(result) {
+                return $http.get(apiConfig.url + 'api/city/' + id).then(function(result) {
                     return result.data;
                 });
             },
 
             getCityByName: function(text){
-                return $http.get('http://192.168.15.81/TransportLaravel/public/cities/' + text).then(function(result) {
+                return $http.get(apiConfig.url + 'cities/' + text).then(function(result) {
                     return result.data;
                 });
             }

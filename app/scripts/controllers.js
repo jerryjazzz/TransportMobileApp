@@ -7,7 +7,7 @@ angular.module('TransportMobileApp.controllers', [])
 
     })
 
-    .controller('MainCtrl', function($scope, CityService) {
+    .controller('MainCtrl', function($scope, CityService, apiConfig) {
 
         $scope.drawResult = function(text){
             if(text.length > 0){
