@@ -29,7 +29,7 @@ angular.module('TransportMobileApp', [
     })
 
     .constant("apiConfig", {
-        "url": "http://192.168.15.98/TransportLaravel/public/"
+        "url": "http://54.93.103.2/AdminPanel/public/"
     })
 
     .config(function($stateProvider, $urlRouterProvider) {
